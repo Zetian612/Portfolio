@@ -5,12 +5,12 @@ export const Project = props => {
     <div className="col-md-4">
       <div className="work-box">
         <a
-          href={`http://portfolio-backend.test:8081/images/projects/${props.img}`}
+          href={props.img}
           data-gallery="portfolioGallery"
           className="portfolio-lightbox"
         >
           <div className="work-img">
-            <img src={`http://portfolio-backend.test:8081/images/projects/${props.img}`} alt="Work" className="img-fluid"/>
+            <img src={props.img} alt="Work" className="img-fluid"/>
           </div>
         </a>
         <div className="work-content">
@@ -24,9 +24,9 @@ export const Project = props => {
             </div>
             <div className="col-sm-4">
               <div className="w-like">
-                <a href="/">
+                <a href={props.url}>
                   {" "}
-                  <span className="bi bi-plus-circle" />
+                  <span className="bi bi-link" />
                 </a>
               </div>
             </div>

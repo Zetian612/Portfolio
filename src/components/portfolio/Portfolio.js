@@ -50,6 +50,7 @@ export const Portfolio = () => {
                 key={index}
                 title={project.name}
                 category={project.category}
+                url={project.url}
                 date={project.date}
                 img={project.image_url}
               />
