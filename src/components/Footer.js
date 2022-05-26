@@ -86,7 +86,8 @@ export const Footer = () => {
       {
         preloader ? <div id="preloader"></div> : ''
       }
-    <a href="#header" className={`back-to-top d-flex align-items-center justify-content-center ${ backtotop ? 'active' : '' }`}><i className="bi bi-arrow-up-short" /></a> 
+      {/* eslint-disable-next-line  */}
+     <a href="#" className={`back-to-top d-flex align-items-center justify-content-center ${ backtotop ? 'active' : '' }`}><i className="bi bi-arrow-up-short" /></a> 
 
     </>
   );
