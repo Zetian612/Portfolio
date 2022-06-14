@@ -3,41 +3,28 @@ import '../styles/Footer.css';
 
 export const Footer = () => {
   const [preloader, setPreloader] = useState(true);
-  const [backtotop, setBacktotop] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setPreloader(false);
-    setBacktotop(true);
-  }, []);
+   window.addEventListener('scroll', toggleVisibility);
 
-   /**
-   * Preloader
-   */
-  // const preloaderDelay = data => {
-  //   console.log("preloader");
-  //   if (preloader) {
-  //     window.addEventListener('load', () => {
-  //       setPreloader(false);
-  //     }
-  //     );
-  //   }
-  // }
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    }
+
+  }
+  , []);
 
    /**
    * Back to top button
    */
-  const toggleBacktotop = () => {
-    if (!backtotop) {
-      const toggleBacktotop = () => {
-        if (window.scrollY > 100) {
-          setBacktotop(true);
-        } else {
-          setBacktotop(false);
-        }
-      }
-      window.addEventListener('load', toggleBacktotop)
-      window.addEventListener('scroll', toggleBacktotop)
-
+  const toggleVisibility = () => {
+    if (window.scrollY > 100) {
+      setIsVisible(true);
+    }
+    else {
+      setIsVisible(false);
     }
   }
 
@@ -63,7 +50,7 @@ export const Footer = () => {
         preloader ? <div id="preloader"></div> : ''
       }
       {/* eslint-disable-next-line  */}
-     <a href="#" className={`back-to-top d-flex align-items-center justify-content-center ${ backtotop ? 'active' : '' }`}><i className="bi bi-arrow-up-short" /></a> 
+     <a href="#" className={`back-to-top d-flex align-items-center justify-content-center ${ isVisible ? 'active' : '' }`}><i className="bi bi-arrow-up-short" /></a> 
 
     </>
   );
