@@ -6,8 +6,8 @@ export const Footer = () => {
   const [backtotop, setBacktotop] = useState(false);
 
   useEffect(() => {
-setPreloader(false);
-
+    setPreloader(false);
+    setBacktotop(true);
   }, []);
 
    /**
