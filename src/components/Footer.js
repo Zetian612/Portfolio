@@ -6,11 +6,9 @@ export const Footer = () => {
   const [backtotop, setBacktotop] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setPreloader(false);
-    }, 1000);
-    toggleBacktotop(); 
-  });
+setPreloader(false);
+
+  }, []);
 
    /**
    * Preloader
@@ -52,31 +50,9 @@ export const Footer = () => {
             <div className="col-sm-12">
               <div className="copyright-box">
                 <p className="copyright">
-                  © Copyright <strong>DevFolio</strong>. All Rights Reserved
+                  Designed by <strong>ZetDev</strong>💜
                 </p>
-                <div className="credits">
-                 
-                  Designed by {""}
-                  <a href="/">ZetDev 💜​</a>
-                  <div className="socials">
-                        <ul>
-                          <li>
-                            <a href="/">
-                              <span className="ico-circle">
-                                <i className="bi bi-twitter" />
-                              </span>
-                            </a>
-                          </li>
-                          <li>
-                          <span className="ico-circle">
-                            <a href="/">
-                                <i className="bi bi-linkedin" />
-                            </a>
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                </div>
+
               </div>
             </div>
           </div>

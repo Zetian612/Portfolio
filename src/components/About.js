@@ -33,8 +33,8 @@ export const About = () => {
                             <span>full stack developer</span>
                           </p>
                           <p>
-                            <span className="title-s">Email: </span>{" "}
-                            <span>juasebasper@hotmail.es</span>
+                            {/* <span className="title-s">Email: </span>{" "}
+                            <span>juasebasper@hotmail.es</span> */}
                           </p>
                           {/* <p>
                             <span className="title-s">Phone: </span>{" "}
