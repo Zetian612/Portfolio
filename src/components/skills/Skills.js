@@ -2,23 +2,21 @@ import React, { useState, useEffect } from "react";
 import { baseURL } from "../baseURL";
 import axios from "axios";
 import { Item } from "./Item";
-import Loader from "../../utils/Loader";
 export const Skills = () => {
   const [skill, setSkill] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${baseURL}/api/skills`)
-    .then(res => {
-      setTimeout(() => {
-        setSkill(res.data);
-        setLoading(false);
-      }, 3000);
-    }
-    )
-    .catch(err => console.log(err));
+    getSkills();
   }, []);
 
+  const getSkills = () => {
+      axios.get(`${baseURL}/api/skills`)
+      .then(res => {
+        setSkill(res.data);
+      }
+      )
+      .catch(err => console.log(err));
+  };
   return (
     <>
       {/* ======= Services Section ======= */}
@@ -35,9 +33,8 @@ export const Skills = () => {
               </div>
             </div>
           </div>
-          <div className={`row ${ loading ? 'justify-content-center' : ''}`}>
-            { loading ? <div className="col-md-4 text-center mb-4"> <Loader /> </div> :
-              skill.map((skill, index) => (
+          <div className="row">
+            {skill.map((skill, index) => (
               <Item key={index} name={skill.name} icon={skill.icon} />
             ))}
           </div>
