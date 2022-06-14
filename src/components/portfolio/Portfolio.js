@@ -4,8 +4,11 @@ import "../../styles/Portfolio.css";
 import { Project } from "./Project";
 import { baseURL } from "../baseURL";
 import axios from "axios";
+import Loader from "../../utils/Loader";
+
 export const Portfolio = () => {
   const [project, setProject] = useState([]);
+  const [loading, setLoading] = useState(true);
   /**
    * Initiate portfolio lightbox
    */
@@ -16,17 +19,18 @@ export const Portfolio = () => {
   });
 
   useEffect(() => {
-    getProjects();
+    axios.get(`${baseURL}/api/projects`)
+    .then(res => {
+      setTimeout(() => {
+        setProject(res.data);
+        setLoading(false);
+      }, 3000);
+    }
+    )
+    .catch(err => console.log(err));
   }, []);
 
 
-  const getProjects = () => {
-    axios.get(`${baseURL}/api/projects`)
-      .then(res => {
-        setProject(res.data);
-      })
-      .catch(err => console.log(err));
-  };
 
   return (
     <>
@@ -44,8 +48,9 @@ export const Portfolio = () => {
               </div>
             </div>
           </div>
-          <div className="row">
-            {project.map((project, index) => (
+          <div className={`row ${ loading ? 'justify-content-center' : ''}`}>
+            { loading ? <div className="col-md-4 text-center mb-4"> <Loader /> </div> :
+              project.map((project, index) => (
               <Project
                 key={index}
                 title={project.name}
