@@ -120,11 +120,11 @@ const Header = () => {
                   Work
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a className="nav-link scrollto" href="#contact">
                   Contact
                 </a>
-              </li>
+              </li> */}
             </ul>
             <i className="bi bi-list mobile-nav-toggle" />
           </nav>

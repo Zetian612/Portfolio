@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import '../styles/Footer.css';
 
 export const Footer = () => {
-  const [preloader, setPreloader] = useState(true);
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setPreloader(false);
    window.addEventListener('scroll', toggleVisibility);
 
     return () => {
@@ -46,9 +45,7 @@ export const Footer = () => {
         </div>
       </footer>
       {/* End  Footer */}
-      {
-        preloader ? <div id="preloader"></div> : ''
-      }
+
       {/* eslint-disable-next-line  */}
      <a href="#" className={`back-to-top d-flex align-items-center justify-content-center ${ isVisible ? 'active' : '' }`}><i className="bi bi-arrow-up-short" /></a> 
 

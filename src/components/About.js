@@ -50,7 +50,7 @@ export const About = () => {
                         <h5 className="title-left">About me</h5>
                       </div>
                       <p className="lead">
-                      🌱Futuro Tecnólogo en Análisis y desarrollo de Sistemas de Información y Desarrollador Full-Stack junior con ganas de seguir aprendiendo y practicando en el ámbito del desarrollo web.
+                      🌱Tecnólogo en Análisis y desarrollo de Sistemas de Información y Desarrollador Full-Stack junior con ganas de seguir aprendiendo y practicando en el ámbito del desarrollo web.
                         Me considero una persona responsable, honesta, con entera disposición, capacidad de seguimiento de instrucciones, presto a realizar y desempeñar actividades en equipo.
                       </p>
                     </div>

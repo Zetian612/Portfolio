@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect, useState } from "react";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Counter } from "./components/Counter";
@@ -10,8 +11,17 @@ import { Skills } from "./components/skills/Skills";
 
 
 function App() {
+  const [preloader, setPreloader] = useState(true);
+
+  useEffect(() => {
+    setPreloader(false);
+  }
+  , []);
+
+  
   return (
-    <>
+     !preloader ? (
+      <>
       <Header />
       <Hero />
       <main id="main">
@@ -19,11 +29,14 @@ function App() {
         <Skills />
         <Counter />
         <Portfolio />
-        <Contact />
+        {/* <Contact /> */}
       </main>
       {/* End #main */}
       <Footer />
     </>
+  ) : (
+    <div id="preloader"></div>
+  )
   );
 }
 
